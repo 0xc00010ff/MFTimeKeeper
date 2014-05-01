@@ -6,6 +6,11 @@
 
 @interface MFTimeKeeper : NSObject
 
+/**
+ * Initialize and return a new MFTimeKeeper
+ */
++ (instancetype)timeKeeper;
+
 /** 
  * Registrant ID allows multiple files to use the same
  * event names without collision. 

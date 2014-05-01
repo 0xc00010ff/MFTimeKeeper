@@ -17,6 +17,11 @@ static NSString* kDefaultRegistrantID = @"_-d-e-f-a-u-l-t-"; // hopefully no one
 
 #pragma mark - Initializers -
 
++ (instancetype)timeKeeper
+{
+    return [[[self class] alloc] init];
+}
+
 - (instancetype)init
 {
     return self = [self initWithRegistrantID:kDefaultRegistrantID];
