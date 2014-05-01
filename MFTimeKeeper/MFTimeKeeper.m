@@ -39,6 +39,11 @@ static NSString* kDefaultRegistrantID = @"_-d-e-f-a-u-l-t-"; // hopefully no one
 
 #pragma mark - Public Methods -
 
+- (BOOL)eventExists:(NSString *)eventName
+{
+    return !![self lastDateOfEvent:eventName];
+}
+
 - (BOOL)itsBeen:(double)minutes minutesSince:(NSString *)eventName
 {
     BOOL itsBeenLongEnough = NO;

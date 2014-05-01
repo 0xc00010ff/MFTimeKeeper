@@ -17,6 +17,11 @@
  */
 - (instancetype)initWithRegistrantID:(NSString*)registrantID;
 
+/**
+ * Convenience method to if an event exists at all
+ */
+- (BOOL)eventExists:(NSString*)eventName;
+
 /** 
  * Checks if an event has occurrence in the specified time frame.
  * Returns NO if the event has never been registered.
