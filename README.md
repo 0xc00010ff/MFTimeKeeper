@@ -1,16 +1,21 @@
 MFTimeKeeper
 ============
 
-#####Most common usage:
-
+##### Common usage patterns:
 ```objective-c
-/* in one of the UIViewController view lifecycle methods: */
-if ([self.timeKeeper itsBeen:15 minutesSince:@"Refreshed")
+if ([timeKeeper itsBeen:15 minutesSince:@"Refreshed"])
 {
     // Actually refresh something, then:
-    [self.timeKeeper recordEvent:@"Refreshed"];
+    [timeKeeper recordEvent:@"Refreshed"];
 }
+```
 
+```objective-c
+if ([timeKeeper eventExists:@"InitialLaunch"])
+{
+    // do something you would only do on the first launch, then:
+    [timeKeeper recordEvent:@"InitialLaunch"];
+}
 ```
 
 ##### Methods
