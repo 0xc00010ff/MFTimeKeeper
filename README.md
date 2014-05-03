@@ -1,5 +1,6 @@
 MFTimeKeeper
 ============
+#### An event tracking utility for Cocoa projects that records titled timestamps to disk to allow behavior based on past actions.
 
 ##### Common usage patterns:
 ```objective-c
