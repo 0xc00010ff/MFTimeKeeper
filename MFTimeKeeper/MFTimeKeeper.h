@@ -7,7 +7,7 @@
 @interface MFTimeKeeper : NSObject
 
 /**
- * Initialize and return a new MFTimeKeeper
+ * Returns an intialized timekeeper under the default namespace
  */
 + (instancetype)timeKeeper;
 
