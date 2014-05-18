@@ -4,7 +4,7 @@ MFTimeKeeper
 
 ##### Common usage patterns:
 ```objective-c
-if ([timeKeeper itsBeen:15 minutesSince:@"Refreshed"])
+if ([[MFTimeKeeper timeKeeper] itsBeen:15 minutesSince:@"Refreshed"])
 {
     // Actually refresh something, then:
     [timeKeeper recordEvent:@"Refreshed"];
@@ -12,7 +12,8 @@ if ([timeKeeper itsBeen:15 minutesSince:@"Refreshed"])
 ```
 
 ```objective-c
-if ([timeKeeper eventExists:@"InitialLaunch"])
+MFTimeKeeper* timeKeeper = [MFTimeKeeper initWithRegistrantID:NSStringFromClass([self class])];
+if (![timeKeeper eventExists:@"InitialLaunch"])
 {
     // do something you would only do on the first launch, then:
     [timeKeeper recordEvent:@"InitialLaunch"];
@@ -26,7 +27,12 @@ if ([timeKeeper eventExists:@"InitialLaunch"])
 */
 - (instancetype)initWithRegistrantID:(NSString*)registrantID;
 ```
-
+```objective-c
+/**
+* Returns an intialized timekeeper under the default namespace
+*/
++ (instancetype)timeKeeper;
+```
 
 ```objective-c
 /**
@@ -59,3 +65,6 @@ if ([timeKeeper eventExists:@"InitialLaunch"])
 */
 - (void)forgetEvent:(NSString*)eventName;
 ```
+
+##### Notes:
+Keep in mind that the events will never cross namespaces. Using the `[MFTimeKeeper timeKeeper]` factory method will track events under the default global namespace. You can also make your own global namespace, or choose to namespace events by your class name or any arbitrary name, but make sure that you are consistent and aware of what bucket you are putting your events into. 
