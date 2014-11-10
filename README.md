@@ -7,7 +7,7 @@ MFTimeKeeper
 if ([[MFTimeKeeper timeKeeper] itsBeen:15 minutesSince:@"Refreshed"])
 {
     // Actually refresh something, then:
-    [timeKeeper recordEvent:@"Refreshed"];
+    [[MFTimeKeeper timeKeeper] recordEvent:@"Refreshed"];
 }
 ```
 
