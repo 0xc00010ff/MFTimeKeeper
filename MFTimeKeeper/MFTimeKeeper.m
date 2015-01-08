@@ -101,7 +101,7 @@ static NSString* kDefaultRegistrantID = @"_-d-e-f-a-u-l-t-"; // hopefully no one
     // save the event to disk in the background
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         if (![self.events writeToFile:self.filePath atomically:YES]) {
-            NSLog(@"Error recording event to disk in BMScheduler");
+            NSLog(@"Error recording event to disk in MFTimeKeeper");
         }
     });
 }
